@@ -20,6 +20,13 @@ Download page: <https://scarakazuha.github.io/femboy-youtube-music/>. All versio
 
 A small Rust + Tauri 2 desktop wrapper around **https://music.youtube.com**, using the installed Windows WebView2 runtime. **Unofficial: not affiliated with, endorsed by, or sponsored by Google or YouTube.** YouTube and YouTube Music are their owners' trademarks. The icon and splash artwork are fan art of a mascot holding the YouTube Music logo; the logo remains Google's trademark and is used only to show which service this wrapper opens.
 
+## Code signing policy
+
+This project has applied for free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org). Until the application is accepted, installers are **not** code-signed.
+
+- Committers, reviewers and approvers: [ScaraKazuha](https://github.com/ScaraKazuha)
+- Privacy policy: see [Privacy](#privacy) below. The program does not transfer any information to other networked systems, except the update check described there and the websites the user opens.
+
 ## Privacy
 
 The app has no telemetry, analytics or accounts of its own. It only talks to:
