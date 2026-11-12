@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Femboy YouTube Music</title>
+<meta name="description" content="An unofficial YouTube Music desktop app for Windows. One-click install, tray playback, automatic updates.">
+<link rel="icon" href="mascot.png">
+<style>
+  :root { --bg: #030303; --card: #151515; --line: #2a2a2a; --text: #fff; --muted: #aaa; --red: #ff0033; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Segoe UI", system-ui, -apple-system, sans-serif; line-height: 1.5; }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; text-align: center; }
+  .mascot { width: min(260px, 60vw); height: auto; animation: bob 1.8s ease-in-out infinite; }
+  h1 { font-size: clamp(28px, 6vw, 42px); margin: 20px 0 6px; }
+  .tagline { color: var(--muted); font-size: 18px; margin: 0 0 28px; }
+  .install { display: inline-block; background: var(--red); color: #fff; text-decoration: none; font-weight: 700; font-size: 20px; padding: 16px 36px; border-radius: 999px; transition: transform .12s ease, filter .12s ease; }
+  .install:hover { transform: translateY(-2px); filter: brightness(1.1); }
+  .install:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  .meta { color: var(--muted); font-size: 14px; margin: 12px 0 40px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; text-align: left; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .card h2 { font-size: 16px; margin: 0 0 6px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14px; }
+  .steps { text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; margin-top: 14px; }
+  .steps h2 { font-size: 16px; margin: 0 0 8px; }
+  .steps ol { margin: 0; padding-left: 20px; color: var(--muted); font-size: 14px; }
+  .steps b { color: var(--text); }
+  footer { color: #777; font-size: 12.5px; margin-top: 36px; }
+  footer a { color: #bbb; }
+  @keyframes bob { 50% { transform: translateY(-7px); } }
+  @media (prefers-reduced-motion: reduce) { .mascot { animation: none; } .install { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <img class="mascot" src="mascot.png" alt="" width="260" height="260">
+  <h1>Femboy YouTube Music</h1>
+  <p class="tagline">YouTube Music as a small, cute Windows app.</p>
+  <a class="install" href="https://github.com/ScaraKazuha/femboy-youtube-music/releases/latest/download/Femboy-YouTube-Music-setup.exe">Install for Windows</a>
+  <p class="meta">Free · about 3 MB · Windows 10/11 (64-bit) · no admin rights needed</p>
+
+  <div class="grid">
+    <div class="card"><h2>Keeps playing</h2><p>Close the window and music continues from the tray. Click the tray icon to bring it back.</p></div>
+    <div class="card"><h2>Updates itself</h2><p>New versions are offered at startup and installed with one click.</p></div>
+    <div class="card"><h2>Tiny and clean</h2><p>Written in Rust. Uses the browser engine already built into Windows, so there is nothing heavy to download.</p></div>
+  </div>
+
+  <div class="steps">
+    <h2>How to install</h2>
+    <ol>
+      <li>Click <b>Install for Windows</b> and open the downloaded file.</li>
+      <li>If Windows shows "Windows protected your PC", click <b>More info</b>, then <b>Run anyway</b>. The installer is not code-signed, so Windows does not know the publisher yet.</li>
+      <li>Click <b>Next</b> and <b>Install</b>. The app opens and a shortcut appears on your desktop.</li>
+    </ol>
+  </div>
+
+  <footer>
+    <p>Unofficial app: not affiliated with, endorsed by, or sponsored by Google or YouTube. YouTube Music is a trademark of Google LLC.<br>
+    <a href="https://github.com/ScaraKazuha/femboy-youtube-music">Source code on GitHub</a> · <a href="https://github.com/ScaraKazuha/femboy-youtube-music/releases">All versions</a></p>
+  </footer>
+</main>
+</body>
+</html>
