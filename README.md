@@ -2,11 +2,15 @@
 
 <p align="center"><img src="web/mascot.png" width="220" alt="Femboy YouTube Music"></p>
 
-An unofficial YouTube Music desktop app.
+<p align="center">An unofficial YouTube Music desktop app.</p>
+
+<p align="center">
+  <a href="https://github.com/ScaraKazuha/femboy-youtube-music/releases/latest/download/Femboy-YouTube-Music-setup.exe"><img src="docs/download-button.svg" width="300" alt="Download for Windows"></a>
+</p>
 
 ## Download
 
-**[⬇ Download the installer for Windows](https://github.com/ScaraKazuha/femboy-youtube-music/releases/latest/download/Femboy-YouTube-Music-setup.exe)**
+Click the button above, or use this link: **[Femboy-YouTube-Music-setup.exe](https://github.com/ScaraKazuha/femboy-youtube-music/releases/latest/download/Femboy-YouTube-Music-setup.exe)** (always the latest version).
 
 1. Download and run `Femboy-YouTube-Music-setup.exe`.
 2. Windows may show "Windows protected your PC" because the installer is not code-signed: click **More info → Run anyway**.

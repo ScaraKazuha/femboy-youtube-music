@@ -75,4 +75,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           $files = Get-ChildItem release | ForEach-Object { $_.FullName }
-          gh release create $env:GITHUB_REF_NAME @files --title "Femboy YouTube Music $env:APP_VERSION" --generate-notes
+          $notes = "**Download:** [Femboy-YouTube-Music-setup.exe](https://github.com/$env:GITHUB_REPOSITORY/releases/download/$env:GITHUB_REF_NAME/Femboy-YouTube-Music-setup.exe) - run it and click Install. If Windows shows `"Windows protected your PC`", click **More info**, then **Run anyway**. Installed copies update themselves."
+          gh release create $env:GITHUB_REF_NAME @files --title "Femboy YouTube Music $env:APP_VERSION" --notes $notes --generate-notes
