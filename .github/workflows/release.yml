@@ -1,0 +1,76 @@
+name: Release
+
+# Push a tag like v0.2.1 (matching the version in src-tauri/tauri.conf.json)
+# to build the signed installer and publish it with the updater feed.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check tag matches app version
+        shell: pwsh
+        run: |
+          $version = (Get-Content src-tauri/tauri.conf.json -Raw | ConvertFrom-Json).version
+          if ("v$version" -ne $env:GITHUB_REF_NAME) {
+            throw "Tag $env:GITHUB_REF_NAME does not match tauri.conf.json version $version"
+          }
+          "APP_VERSION=$version" >> $env:GITHUB_ENV
+
+      - name: Install pinned Rust toolchain
+        run: rustup show
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Checks
+        run: |
+          cargo fmt --all -- --check
+          cargo clippy --workspace --all-targets --locked -- -D warnings
+          cargo test --workspace --locked
+
+      - name: Build signed installer
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        run: npx --yes @tauri-apps/cli@2.12.4 build --target x86_64-pc-windows-msvc --bundles nsis -- --locked
+
+      - name: Prepare release assets and updater feed
+        shell: pwsh
+        run: |
+          $bundle = 'target/x86_64-pc-windows-msvc/release/bundle/nsis'
+          $installer = Get-ChildItem "$bundle/*-setup.exe"
+          if (@($installer).Count -ne 1) { throw 'Expected exactly one NSIS installer.' }
+          $signature = Get-Content -Raw "$($installer.FullName).sig"
+          # GitHub rewrites spaces in asset names, so publish a space-free name.
+          $name = "Femboy-YouTube-Music_${env:APP_VERSION}_x64-setup.exe"
+          New-Item -ItemType Directory -Force release | Out-Null
+          Copy-Item -LiteralPath $installer.FullName -Destination "release/$name"
+          $feed = [ordered]@{
+            version   = $env:APP_VERSION
+            notes     = "See https://github.com/$env:GITHUB_REPOSITORY/releases/tag/$env:GITHUB_REF_NAME"
+            pub_date  = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
+            platforms = [ordered]@{
+              'windows-x86_64' = [ordered]@{
+                signature = $signature.Trim()
+                url       = "https://github.com/$env:GITHUB_REPOSITORY/releases/download/$env:GITHUB_REF_NAME/$name"
+              }
+            }
+          }
+          $json = $feed | ConvertTo-Json -Depth 5
+          [IO.File]::WriteAllText("$PWD/release/latest.json", $json)
+          Get-Content release/latest.json
+
+      - name: Publish GitHub release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $files = Get-ChildItem release | ForEach-Object { $_.FullName }
+          gh release create $env:GITHUB_REF_NAME @files --title "Femboy YouTube Music $env:APP_VERSION" --generate-notes

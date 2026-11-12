@@ -1,0 +1,27 @@
+html, body { height: 100%; margin: 0; }
+body {
+  background: #030303;
+  color: #fff;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+  user-select: none;
+  cursor: default;
+}
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.mascot { width: 300px; height: 300px; animation: bob 1.6s ease-in-out infinite; }
+h1 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: 0.2px; }
+.dots { margin: 8px 0 0; display: flex; gap: 7px; }
+.dots i { width: 7px; height: 7px; border-radius: 50%; background: #ff0033; animation: blink 1s ease-in-out infinite; }
+.dots i:nth-child(2) { animation-delay: 0.18s; }
+.dots i:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes bob { 50% { transform: translateY(-6px); } }
+@keyframes blink { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .mascot, .dots i { animation: none; } }
