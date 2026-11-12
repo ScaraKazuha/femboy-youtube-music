@@ -1,6 +1,18 @@
 # Femboy YouTube Music for Windows
 
+<p align="center"><img src="web/mascot.png" width="220" alt="Femboy YouTube Music"></p>
+
 An unofficial YouTube Music desktop app.
+
+## Download
+
+**[⬇ Download the installer for Windows](https://github.com/ScaraKazuha/femboy-youtube-music/releases/latest/download/Femboy-YouTube-Music-setup.exe)**
+
+1. Download and run `Femboy-YouTube-Music-setup.exe`.
+2. Windows may show "Windows protected your PC" because the installer is not code-signed: click **More info → Run anyway**.
+3. The app appears on the desktop and in the Start menu, and later updates itself.
+
+All versions: [Releases](https://github.com/ScaraKazuha/femboy-youtube-music/releases).
 
 A small Rust + Tauri 2 desktop wrapper around **https://music.youtube.com**, using the installed Windows WebView2 runtime. **Unofficial: not affiliated with, endorsed by, or sponsored by Google or YouTube.** YouTube and YouTube Music are their owners' trademarks. The icon and splash artwork are fan art of a mascot holding the YouTube Music logo; the logo remains Google's trademark and is used only to show which service this wrapper opens.
 

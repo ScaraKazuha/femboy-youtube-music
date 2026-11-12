@@ -52,6 +52,8 @@ jobs:
           $name = "Femboy-YouTube-Music_${env:APP_VERSION}_x64-setup.exe"
           New-Item -ItemType Directory -Force release | Out-Null
           Copy-Item -LiteralPath $installer.FullName -Destination "release/$name"
+          # Version-less copy: gives README a permanent "latest" download link.
+          Copy-Item -LiteralPath $installer.FullName -Destination "release/Femboy-YouTube-Music-setup.exe"
           $feed = [ordered]@{
             version   = $env:APP_VERSION
             notes     = "See https://github.com/$env:GITHUB_REPOSITORY/releases/tag/$env:GITHUB_REF_NAME"
