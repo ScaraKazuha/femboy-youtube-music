@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="360" height="72" viewBox="0 0 360 72" role="img" aria-label="Download for Windows">
   <rect width="360" height="72" rx="36" fill="#ff0033"/>
   <g fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M58 20v24M46 34l12 12 12-12M44 54h28"/>
+    <path d="M46 20v24M34 34l12 12 12-12M32 54h28"/>
   </g>
-  <text x="200" y="45" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#fff">Download for Windows</text>
+  <text x="78" y="45" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="23" font-weight="700" fill="#fff">Download for Windows</text>
 </svg>
