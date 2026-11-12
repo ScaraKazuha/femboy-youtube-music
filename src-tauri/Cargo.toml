@@ -1,6 +1,6 @@
 [package]
 name = "femboy-youtube-music"
-version = "0.2.0"
+version = "0.2.1"
 description = "An unofficial, lightweight YouTube Music desktop wrapper"
 authors = ["Femboy YouTube Music contributors"]
 edition = "2021"
