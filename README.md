@@ -20,6 +20,17 @@ Download page: <https://scarakazuha.github.io/femboy-youtube-music/>. All versio
 
 A small Rust + Tauri 2 desktop wrapper around **https://music.youtube.com**, using the installed Windows WebView2 runtime. **Unofficial: not affiliated with, endorsed by, or sponsored by Google or YouTube.** YouTube and YouTube Music are their owners' trademarks. The icon and splash artwork are fan art of a mascot holding the YouTube Music logo; the logo remains Google's trademark and is used only to show which service this wrapper opens.
 
+## Privacy
+
+The app has no telemetry, analytics or accounts of its own. It only talks to:
+
+- **music.youtube.com and Google sign-in pages**, when you use them, exactly as a browser would. Their own privacy policies apply.
+- **github.com**, once at startup and when you choose **Check for updates**, to read this repository's public `latest.json`. Nothing about you is sent beyond a normal web request.
+
+## Uninstall
+
+Open **Settings → Apps → Installed apps**, find **Femboy YouTube Music** and choose **Uninstall** (or run `uninstall.exe` from `%LOCALAPPDATA%\Femboy YouTube Music`). The uninstaller offers to remove the saved profile as well.
+
 ## Use
 
 - Search, playlists, account features and playback use the official website directly.
